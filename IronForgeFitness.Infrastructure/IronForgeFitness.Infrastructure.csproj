@@ -10,4 +10,9 @@
     <ProjectReference Include="..\IronForgeFitness.Application\IronForgeFitness.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Database\Migrations\" />
+    <Folder Include="Database\Extensions\" />
+  </ItemGroup>
+
 </Project>
