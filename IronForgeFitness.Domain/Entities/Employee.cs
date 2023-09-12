@@ -2,6 +2,9 @@
 
 namespace IronForgeFitness.Domain.Entities
 {
+    /// <summary>
+    /// Represents an entity of employee
+    /// </summary>
     public class Employee : Person
     {
         public Account? Account { get; set; }

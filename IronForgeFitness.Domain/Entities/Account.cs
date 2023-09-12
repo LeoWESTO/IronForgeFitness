@@ -3,6 +3,9 @@ using IronForgeFitness.Domain.Enums;
 
 namespace IronForgeFitness.Domain.Entities
 {
+    /// <summary>
+    /// Represents the entity that identify the user
+    /// </summary>
     public class Account : BaseEntity
     {
         public string Email { get; set; } = string.Empty;

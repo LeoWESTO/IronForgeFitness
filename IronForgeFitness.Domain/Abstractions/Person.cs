@@ -1,5 +1,8 @@
 ﻿namespace IronForgeFitness.Domain.Abstractions
 {
+    /// <summary>
+    /// Represents an entity that describes personal data
+    /// </summary>
     public abstract class Person : BaseEntity
     {
         public string FirstName { get; set; } = string.Empty;

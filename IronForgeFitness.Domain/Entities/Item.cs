@@ -3,11 +3,11 @@
 namespace IronForgeFitness.Domain.Entities
 {
     /// <summary>
-    /// Represents an entity of gym service
+    /// Represents an entity of item in stock
     /// </summary>
-    public class Service : BaseEntity
+    public class Item : BaseEntity
     {
         public string Title { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        public decimal Price { get; set; } = decimal.Zero;
     }
 }

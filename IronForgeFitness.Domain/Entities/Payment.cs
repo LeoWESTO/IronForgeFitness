@@ -2,6 +2,9 @@
 
 namespace IronForgeFitness.Domain.Entities
 {
+    /// <summary>
+    /// Represents an entity of payment data
+    /// </summary>
     public class Payment : BaseEntity
     {
         public Service Service { get; set; }
