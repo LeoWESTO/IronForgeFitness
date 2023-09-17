@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using IronForgeFitness.API.DTOs;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IronForgeFitness.API.Controllers;
 
@@ -7,9 +8,9 @@ namespace IronForgeFitness.API.Controllers;
 public class AuthController : ControllerBase
 {
 
-    [Route("signIn")]
+    [Route("login")]
     [HttpPost]
-    public IActionResult SignIn([FromBody] object request)
+    public IActionResult Login([FromBody] AuthCredentials credentials)
     {
 
         return Unauthorized();
@@ -17,7 +18,7 @@ public class AuthController : ControllerBase
 
     [Route("logout")]
     [HttpPost]
-    public IActionResult Logout([FromBody] object request)
+    public IActionResult Logout()
     {
 
         return Unauthorized();
