@@ -8,6 +8,6 @@ namespace IronForgeFitness.Domain.Entities
         public TransactionType Type { get; set; } = TransactionType.None;
         public DateTime DateTime { get; set; }
         public decimal Amount { get; set; } = decimal.Zero;
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
     }
 }

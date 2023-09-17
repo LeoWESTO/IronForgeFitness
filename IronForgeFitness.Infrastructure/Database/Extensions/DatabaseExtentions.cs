@@ -1,6 +1,5 @@
 ﻿using IronForgeFitness.Application.Database;
 using IronForgeFitness.Domain.Entities;
-using IronForgeFitness.Domain.Entities.Transactions;
 using IronForgeFitness.Infrastructure.Database.Contexts;
 using IronForgeFitness.Infrastructure.Database.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -50,8 +49,12 @@ namespace IronForgeFitness.Infrastructure.Database.Extensions
             services.AddTransient<IRepository<Employee>, SqlRepository<Employee>>();
             services.AddTransient<IRepository<Customer>, SqlRepository<Customer>>();
             services.AddTransient<IRepository<Item>, SqlRepository<Item>>();
-            services.AddTransient<IRepository<Payment>, SqlRepository<Payment>>();
+            services.AddTransient<IRepository<Transaction>, SqlRepository<Transaction>>();
             services.AddTransient<IRepository<Subscription>, SqlRepository<Subscription>>();
+            services.AddTransient<IRepository<Gym>, SqlRepository<Gym>>();
+            services.AddTransient<IRepository<Account>, SqlRepository<Account>>();
+            services.AddTransient<IRepository<Training>, SqlRepository<Training>>();
+            services.AddTransient<IRepository<Service>, SqlRepository<Service>>();
         }
     }
 }

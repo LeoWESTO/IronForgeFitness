@@ -4,6 +4,6 @@ namespace IronForgeFitness.Domain.Entities
 {
     public class Gym : BaseEntity
     {
-        public string Address { get; set; }
+        public string Address { get; set; } = string.Empty;
     }
 }

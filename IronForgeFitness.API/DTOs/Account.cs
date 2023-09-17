@@ -2,14 +2,15 @@
 
 namespace IronForgeFitness.API.DTOs;
 
-public record AccountGet();
-public record AccountPost(
+public record AccountsList(
+    uint CurrentPage,
+    uint ItemsPerPage,
+    uint TotalItems,
+    List<AccountResponse> Accounts);
+public record AccountResponse(
     string Email,
-    string Password,
     Role Role);
-
-public record AccountPut(
-    Guid Id,
+public record AccountRequest(
     string Email,
     string Password,
     Role Role);

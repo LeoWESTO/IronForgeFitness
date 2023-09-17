@@ -4,8 +4,8 @@ public record CustomersList(
     uint CurrentPage,
     uint ItemsPerPage,
     uint TotalItems,
-    List<CustomerGet> Customers);
-public record CustomerGet(
+    List<CustomerResponse> Customers);
+public record CustomerResponse(
     Guid Id,
     string FirstName,
     string LastName,
@@ -13,15 +13,7 @@ public record CustomerGet(
     DateOnly DateOfBirth,
     string PhoneNumber, 
     Guid? AccountId);
-public record CustomerPost(
-    string FirstName,
-    string LastName,
-    string? Patronymic,
-    DateOnly DateOfBirth,
-    string PhoneNumber,
-    Guid AccountId);
-public record CustomerPut(
-    Guid Id,
+public record CustomerRequest(
     string FirstName,
     string LastName,
     string? Patronymic,

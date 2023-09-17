@@ -4,8 +4,8 @@ public record EmployeesList(
     uint CurrentPage,
     uint ItemsPerPage,
     uint TotalItems,
-    List<EmployeeGet> Employees);
-public record EmployeeGet(
+    List<EmployeeResponse> Employees);
+public record EmployeeResponse(
     Guid Id,
     string FirstName,
     string LastName,
@@ -15,17 +15,7 @@ public record EmployeeGet(
     Guid? AccountId,
     decimal Salary,
     DateOnly DateOfHire);
-public record EmployeePost(
-    string FirstName,
-    string LastName,
-    string? Patronymic,
-    DateOnly DateOfBirth,
-    string PhoneNumber,
-    Guid AccountId,
-    decimal Salary,
-    DateOnly DateOfHire);
-public record EmployeePut(
-    Guid Id,
+public record EmployeeRequest(
     string FirstName,
     string LastName,
     string? Patronymic,

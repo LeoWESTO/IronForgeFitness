@@ -4,13 +4,13 @@ using IronForgeFitness.Domain.Entities;
 
 namespace IronForgeFitness.API.Mapper;
 
-public class EmployeeProfile : Profile
+public class AccountProfile : Profile
 {
-    public EmployeeProfile()
+    public AccountProfile()
     {
-        CreateMap<Employee, EmployeeResponse>()
+        CreateMap<Account, AccountResponse>()
             .ReverseMap();
-        CreateMap<Employee, EmployeeRequest>()
+        CreateMap<Account, AccountRequest>()
             .ReverseMap();
     }
 }

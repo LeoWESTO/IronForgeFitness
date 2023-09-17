@@ -1,4 +1,6 @@
-﻿using IronForgeFitness.API.DTOs;
+﻿using AutoMapper;
+using IronForgeFitness.API.DTOs;
+using IronForgeFitness.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IronForgeFitness.API.Controllers;
@@ -7,6 +9,16 @@ namespace IronForgeFitness.API.Controllers;
 [ApiController]
 public class AuthController : ControllerBase
 {
+    private readonly IMapper _mapper;
+    private readonly IAccountService _accountService;
+
+    public AuthController(
+        IMapper mapper,
+        IAccountService accountService)
+    {
+        _mapper = mapper;
+        _accountService = accountService;
+    }
 
     [Route("login")]
     [HttpPost]

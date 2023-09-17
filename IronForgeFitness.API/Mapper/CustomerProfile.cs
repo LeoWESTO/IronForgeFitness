@@ -8,11 +8,9 @@ public class CustomerProfile : Profile
 {
     public CustomerProfile()
     {
-        CreateMap<Customer, CustomerGet>()
+        CreateMap<Customer, CustomerResponse>()
             .ReverseMap();
-        CreateMap<Customer, CustomerPost>()
-            .ReverseMap();
-        CreateMap<Customer, CustomerPut>()
+        CreateMap<Customer, CustomerRequest>()
             .ReverseMap();
     }
 }

@@ -4,15 +4,13 @@ public record ItemsList(
     uint CurrentPage,
     uint ItemsPerPage,
     uint TotalItems,
-    List<ItemGet> Items);
-public record ItemGet(
+    List<ItemResponse> Items);
+public record ItemResponse(
     Guid Id,
     string Title,
-    decimal Price);
-public record ItemPost(
+    decimal Price,
+    Guid GymId);
+public record ItemRequest(
     string Title,
-    decimal Price);
-public record ItemPut(
-    Guid Id,
-    string Title,
-    decimal Price);
+    decimal Price,
+    Guid GymId);

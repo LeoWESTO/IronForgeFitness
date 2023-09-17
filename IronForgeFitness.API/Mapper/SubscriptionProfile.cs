@@ -8,11 +8,9 @@ public class SubscriptionProfile : Profile
 {
     public SubscriptionProfile()
     {
-        CreateMap<Subscription, SubscriptionGet>()
+        CreateMap<Subscription, SubscriptionResponse>()
             .ReverseMap();
-        CreateMap<Subscription, SubscriptionPost>()
-            .ReverseMap();
-        CreateMap<Subscription, SubscriptionPut>()
+        CreateMap<Subscription, SubscriptionRequest>()
             .ReverseMap();
     }
 }

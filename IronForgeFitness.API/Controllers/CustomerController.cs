@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using IronForgeFitness.API.DTOs;
-using IronForgeFitness.Application.Services;
+using IronForgeFitness.Application.Services.Interfaces;
 using IronForgeFitness.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +11,11 @@ namespace IronForgeFitness.API.Controllers;
 public class CustomerController : ControllerBase
 {
     private readonly IMapper _mapper;
-    private readonly CustomerService _customerService;
+    private readonly ICustomerService _customerService;
 
     public CustomerController(
         IMapper mapper,
-        CustomerService customerService)
+        ICustomerService customerService)
     {
         _mapper = mapper;
         _customerService = customerService;
@@ -24,13 +24,13 @@ public class CustomerController : ControllerBase
     // GET api/customers
     [HttpGet]
     public async Task<ActionResult<IEnumerable<CustomersList>>> GetAll(
-        uint page = 1, 
+        uint page = 1,
         uint itemsPerPage = 10)
     {
         try
         {
-            var customers = _mapper.Map<List<CustomerGet>>(await _customerService.GetCustomersAsync((int)page, (int)itemsPerPage));
-            var res = new CustomersList(page, itemsPerPage, (uint)await _customerService.TotalCount(), customers);
+            var customerDTOs = _mapper.Map<List<CustomerResponse>>(await _customerService.GetCustomersAsync((int)page, (int)itemsPerPage));
+            var res = new CustomersList(page, itemsPerPage, (uint)await _customerService.TotalCount(), customerDTOs);
             return Ok(res);
         }
         catch (Exception ex)
@@ -41,23 +41,23 @@ public class CustomerController : ControllerBase
 
     // GET api/customers/{customerId}
     [HttpGet("{customerId}")]
-    public async Task<ActionResult<CustomerGet>> Get(Guid customerId)
+    public async Task<ActionResult<CustomerResponse>> Get(Guid customerId)
     {
         try
         {
             var customer = await _customerService.GetCustomerAsync(customerId);
-            var customerDTO = _mapper.Map<CustomerGet>(customer);
+            var customerDTO = _mapper.Map<CustomerResponse>(customer);
             return Ok(customerDTO);
         }
         catch (Exception ex)
         {
-            return NotFound();
+            return NotFound(ex.Message);
         }
     }
 
     // POST api/customers
     [HttpPost]
-    public async Task<IActionResult> Create(CustomerPost customerDTO)
+    public async Task<IActionResult> Create(CustomerRequest customerDTO)
     {
         try
         {
@@ -67,23 +67,25 @@ public class CustomerController : ControllerBase
         }
         catch (Exception ex)
         {
-            return BadRequest();
+            return BadRequest(ex.Message);
         }
     }
 
-    // PUT api/customers
-    [HttpPut]
-    public async Task<IActionResult> Update(CustomerPut customerDTO)
+    // PUT api/customers/{customerId}
+    [HttpPut("{customerId}")]
+    public async Task<IActionResult> Update(Guid customerId, CustomerRequest customerDTO)
     {
         try
         {
             var customer = _mapper.Map<Customer>(customerDTO);
+            customer.Id = customerId;
+
             await _customerService.UpdateCustomerAsync(customer);
             return Ok();
         }
         catch (Exception ex)
         {
-            return BadRequest();
+            return BadRequest(ex.Message);
         }
     }
 
@@ -98,13 +100,13 @@ public class CustomerController : ControllerBase
         }
         catch (Exception ex)
         {
-            return BadRequest();
+            return BadRequest(ex.Message);
         }
     }
 
     // GET api/customers/{customerId}/subscriptions
     [HttpGet("{customerId}/subscriptions")]
-    public async Task<ActionResult<SubscriptionGet>> GetCustomerSubscriptions(Guid customerId)
+    public async Task<ActionResult<SubscriptionResponse>> GetCustomerSubscriptions(Guid customerId)
     {
         try
         {

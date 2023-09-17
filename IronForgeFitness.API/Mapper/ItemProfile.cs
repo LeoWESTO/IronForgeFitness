@@ -8,11 +8,9 @@ public class ItemProfile : Profile
 {
     public ItemProfile()
     {
-        CreateMap<Item, ItemGet>()
+        CreateMap<Item, ItemResponse>()
             .ReverseMap();
-        CreateMap<Item, ItemPost>()
-            .ReverseMap();
-        CreateMap<Item, ItemPut>()
+        CreateMap<Item, ItemRequest>()
             .ReverseMap();
     }
 }

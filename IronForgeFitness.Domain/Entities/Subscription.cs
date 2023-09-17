@@ -7,8 +7,8 @@ namespace IronForgeFitness.Domain.Entities
     /// </summary>
     public class Subscription : BaseEntity
     {
-        public Transaction Transaction { get; set; }
-        public Service Service { get; set; }
+        public Transaction? Transaction { get; set; }
+        public Service? Service { get; set; }
         public DateOnly ExpirationDate { get; set; }
     }
 }

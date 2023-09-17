@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6C40FB96-6267-452B-9C87-3BC045570B53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronForgeFitness.Domain", "IronForgeFitness.Domain\IronForgeFitness.Domain.csproj", "{8AEEEA80-BA2D-46C1-8823-709CCA1FA9B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IronForgeFitness.Domain", "IronForgeFitness.Domain\IronForgeFitness.Domain.csproj", "{8AEEEA80-BA2D-46C1-8823-709CCA1FA9B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronForgeFitness.Application", "IronForgeFitness.Application\IronForgeFitness.Application.csproj", "{D42E10D3-0B70-4222-B270-A7660317DA1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IronForgeFitness.Application", "IronForgeFitness.Application\IronForgeFitness.Application.csproj", "{D42E10D3-0B70-4222-B270-A7660317DA1E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{9974C64B-5336-4069-9DB9-501604F57B12}"
 EndProject
@@ -17,11 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{1ABA8E9E-D31D-4364-81C1-68B211F3AD92}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{4AC4992C-6F74-47AA-827B-472497103FA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IronForgeFitness.Infrastructure", "IronForgeFitness.Infrastructure\IronForgeFitness.Infrastructure.csproj", "{EC70D808-0A91-4DDC-9A36-A6E22BEE2FD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronForgeFitness.Infrastructure", "IronForgeFitness.Infrastructure\IronForgeFitness.Infrastructure.csproj", "{EC70D808-0A91-4DDC-9A36-A6E22BEE2FD9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronForgeFitness.API", "IronForgeFitness.API\IronForgeFitness.API.csproj", "{3EFD714A-4BD0-440E-90A2-7025B8E5C84B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IronForgeFitness.API", "IronForgeFitness.API\IronForgeFitness.API.csproj", "{3EFD714A-4BD0-440E-90A2-7025B8E5C84B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,7 +51,6 @@ Global
 		{8AEEEA80-BA2D-46C1-8823-709CCA1FA9B8} = {6C40FB96-6267-452B-9C87-3BC045570B53}
 		{D42E10D3-0B70-4222-B270-A7660317DA1E} = {6C40FB96-6267-452B-9C87-3BC045570B53}
 		{1ABA8E9E-D31D-4364-81C1-68B211F3AD92} = {16C312A1-F382-4D9A-BAB8-A732CD88D7AB}
-		{4AC4992C-6F74-47AA-827B-472497103FA5} = {16C312A1-F382-4D9A-BAB8-A732CD88D7AB}
 		{EC70D808-0A91-4DDC-9A36-A6E22BEE2FD9} = {9974C64B-5336-4069-9DB9-501604F57B12}
 		{3EFD714A-4BD0-440E-90A2-7025B8E5C84B} = {1ABA8E9E-D31D-4364-81C1-68B211F3AD92}
 	EndGlobalSection
