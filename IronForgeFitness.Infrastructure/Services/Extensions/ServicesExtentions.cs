@@ -13,7 +13,7 @@ namespace IronForgeFitness.Infrastructure.Services.Extensions
             services.AddTransient<IItemService, ItemService>();
             services.AddTransient<ITransactionService, TransactionService>();
             services.AddTransient<IGymService, GymService>();
-            services.AddTransient<ISubsriptionService, SubscriptionService>();
+            services.AddTransient<ISubscriptionService, SubscriptionService>();
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<ITrainingService, TrainingService>();
             services.AddTransient<IServiceService, ServiceService>();

@@ -5,7 +5,7 @@ using IronForgeFitness.Domain.Enums;
 
 namespace IronForgeFitness.Application.Services.Implementation
 {
-    public class SubscriptionService : ISubsriptionService
+    public class SubscriptionService : ISubscriptionService
     {
         private readonly IRepository<Subscription> _subsriptionRepository;
         private readonly ITransactionService _transactionService;

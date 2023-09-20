@@ -15,7 +15,6 @@ namespace IronForgeFitness.Infrastructure.Database.Extensions
         {
             services.AddPostgresDatabase(configuration);
             services.AddMongoDatabase(configuration);
-            //services.AddInMemoryDatabase();
             services.AddRepositories();
         }
 
@@ -36,12 +35,6 @@ namespace IronForgeFitness.Infrastructure.Database.Extensions
             {
                 services.AddSingleton(new MongoClient(connection).GetDatabase("iron_forge_fitness"));
             }
-        }
-
-        private static void AddInMemoryDatabase(this IServiceCollection services)
-        {
-            services.AddDbContext<InMemoryContext>(o => o.UseInMemoryDatabase("TestDatabase"));
-            services.AddTransient<DbContext, InMemoryContext>();
         }
 
         private static void AddRepositories(this IServiceCollection services)

@@ -13,11 +13,11 @@ namespace IronForgeFitness.API.Controllers;
 public class SubscriptionController : ControllerBase
 {
     private readonly IMapper _mapper;
-    private readonly ISubsriptionService _subsriptionService;
+    private readonly ISubscriptionService _subsriptionService;
 
     public SubscriptionController(
         IMapper mapper,
-        ISubsriptionService subsriptionService)
+        ISubscriptionService subsriptionService)
     {
         _mapper = mapper;
         _subsriptionService = subsriptionService;
