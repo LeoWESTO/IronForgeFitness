@@ -13,27 +13,28 @@ namespace IronForgeFitness.Infrastructure.Database.Extensions
     {
         public static void AddDatabase(this IServiceCollection services, IConfiguration configuration)
         {
-            //services.AddPostgresDatabase(configuration);
-            //services.AddMongoDatabase(configuration);
-            services.AddInMemoryDatabase();
+            services.AddPostgresDatabase(configuration);
+            services.AddMongoDatabase(configuration);
+            //services.AddInMemoryDatabase();
             services.AddRepositories();
         }
 
         private static void AddPostgresDatabase(this IServiceCollection services, IConfiguration configuration)
         {
-            var connection = configuration.GetConnectionString("PostgresConnection");
+            var connection = configuration.GetConnectionString("PostgreSQLConnection");
             if (connection != null)
             {
                 services.AddDbContext<PostgresContext>(options => options.UseNpgsql(connection));
+                services.AddTransient<DbContext, PostgresContext>();
             }
         }
 
         private static void AddMongoDatabase(this IServiceCollection services, IConfiguration configuration)
         {
-            var connection = configuration.GetConnectionString("MongoConnection");
+            var connection = configuration.GetConnectionString("MongoDBConnection");
             if (connection != null)
             {
-                services.AddSingleton(new MongoClient(connection));
+                services.AddSingleton(new MongoClient(connection).GetDatabase("iron_forge_fitness"));
             }
         }
 
@@ -46,14 +47,15 @@ namespace IronForgeFitness.Infrastructure.Database.Extensions
         private static void AddRepositories(this IServiceCollection services)
         {
             //DI для репозиториев
+            services.AddTransient<IRepository<Gym>, MongoRepository<Gym>>();
+            services.AddTransient<IRepository<Item>, MongoRepository<Item>>();
+            services.AddTransient<IRepository<Training>, MongoRepository<Training>>();
+
             services.AddTransient<IRepository<Employee>, SqlRepository<Employee>>();
             services.AddTransient<IRepository<Customer>, SqlRepository<Customer>>();
-            services.AddTransient<IRepository<Item>, SqlRepository<Item>>();
             services.AddTransient<IRepository<Transaction>, SqlRepository<Transaction>>();
             services.AddTransient<IRepository<Subscription>, SqlRepository<Subscription>>();
-            services.AddTransient<IRepository<Gym>, SqlRepository<Gym>>();
             services.AddTransient<IRepository<Account>, SqlRepository<Account>>();
-            services.AddTransient<IRepository<Training>, SqlRepository<Training>>();
             services.AddTransient<IRepository<Service>, SqlRepository<Service>>();
         }
     }

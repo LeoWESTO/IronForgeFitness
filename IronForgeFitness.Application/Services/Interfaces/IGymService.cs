@@ -4,6 +4,7 @@ namespace IronForgeFitness.Application.Services.Interfaces
 {
     public interface IGymService
     {
+        Task<IEnumerable<Gym>> GetGymsAsync();
         Task<IEnumerable<Gym>> GetGymsAsync(int page, int itemsPerPage);
         Task<Gym> GetGymAsync(Guid id);
         Task OpenGymAsync(Gym gym);

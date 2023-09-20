@@ -25,7 +25,12 @@ namespace IronForgeFitness.Application.Services
 
         public async Task<IEnumerable<Gym>> GetGymsAsync(int page, int itemsPerPage)
         {
-            return await _gymRepository.GetByPage(page, itemsPerPage);
+            return await _gymRepository.GetByPageAsync(page, itemsPerPage);
+        }
+
+        public async Task<IEnumerable<Gym>> GetGymsAsync()
+        {
+            return await _gymRepository.GetAll();
         }
 
         public async Task OpenGymAsync(Gym gym)

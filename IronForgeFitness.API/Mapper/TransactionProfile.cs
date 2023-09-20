@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using IronForgeFitness.API.DTOs;
-using System.Transactions;
+using IronForgeFitness.Domain.Entities;
 
 namespace IronForgeFitness.API.Mapper;
 

@@ -20,12 +20,13 @@ namespace IronForgeFitness.Application.Services
 
         public async Task BuyItemAsync(Item item)
         {
+
             var transaction = new Transaction()
             {
                 Amount = item.Price,
                 DateTime = DateTime.UtcNow,
                 Type = TransactionType.Purchase,
-                Description = $"Покупка {item.Title} в клуб по адресу {item.Gym.Address}"
+                Description = $"Покупка {item.Title} на склад"
             };
 
             await _transactionService.AddTransactionAsync(transaction);
@@ -39,7 +40,7 @@ namespace IronForgeFitness.Application.Services
 
         public async Task<IEnumerable<Item>> GetItemsAsync(int page, int itemsPerPage)
         {
-            return await _itemRepository.GetByPage(page, itemsPerPage);
+            return await _itemRepository.GetByPageAsync(page, itemsPerPage);
         }
 
         public async Task SellItemAsync(Guid id, decimal price)
@@ -50,7 +51,7 @@ namespace IronForgeFitness.Application.Services
                 Amount = -price,
                 DateTime = DateTime.UtcNow,
                 Type = TransactionType.Sale,
-                Description = $"Продажа {item.Title} с клуба по адресу {item.Gym.Address}"
+                Description = $"Продажа {item.Title} со склада"
             };
 
             await _transactionService.AddTransactionAsync(transaction);

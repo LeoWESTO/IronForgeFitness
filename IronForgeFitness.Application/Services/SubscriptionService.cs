@@ -30,7 +30,7 @@ namespace IronForgeFitness.Application.Services
 
         public async Task<IEnumerable<Subscription>> GetSubscriptionsAsync(int page, int itemsPerPage)
         {
-            return await _subsriptionRepository.GetByPage(page, itemsPerPage);
+            return await _subsriptionRepository.GetByPageAsync(page, itemsPerPage);
         }
 
         public async Task OpenSubscriptionAsync(Subscription subscription)

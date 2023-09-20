@@ -8,9 +8,7 @@ public record ItemsList(
 public record ItemResponse(
     Guid Id,
     string Title,
-    decimal Price,
-    Guid GymId);
+    decimal Price);
 public record ItemRequest(
     string Title,
-    decimal Price,
-    Guid GymId);
+    decimal Price);

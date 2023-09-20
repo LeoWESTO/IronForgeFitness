@@ -30,7 +30,7 @@ namespace IronForgeFitness.Application.Services
 
         public async Task<IEnumerable<Service>> GetServicesAsync(int page, int itemsPerPage)
         {
-            return await _serviceRepository.GetByPage(page, itemsPerPage);
+            return await _serviceRepository.GetByPageAsync(page, itemsPerPage);
         }
 
         public async Task<int> TotalCount()

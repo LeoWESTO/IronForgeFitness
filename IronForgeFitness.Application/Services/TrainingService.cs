@@ -24,7 +24,7 @@ namespace IronForgeFitness.Application.Services
 
         public async Task<IEnumerable<Training>> GetTrainingsAsync(int page, int itemsPerPage)
         {
-            return await _trainingRepository.GetByPage(page, itemsPerPage);
+            return await _trainingRepository.GetByPageAsync(page, itemsPerPage);
         }
 
         public async Task ScheduleTrainingAsync(Training training)

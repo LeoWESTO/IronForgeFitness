@@ -26,7 +26,7 @@ namespace IronForgeFitness.Application.Services
 
         public async Task<IEnumerable<Employee>> GetEmployeesAsync(int page, int itemsPerPage)
         {
-            return await _employeeRepository.GetByPage(page, itemsPerPage);
+            return await _employeeRepository.GetByPageAsync(page, itemsPerPage);
         }
 
         public async Task HireEmployeeAsync(Employee employee)

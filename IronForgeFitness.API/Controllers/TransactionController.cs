@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IronForgeFitness.API.Controllers;
 
-[Route("api/payments")]
+[Route("api/transactions")]
 [ApiController]
 public class TransactionController : ControllerBase
 {

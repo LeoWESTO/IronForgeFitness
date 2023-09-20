@@ -25,7 +25,7 @@ namespace IronForgeFitness.Application.Services
 
         public async Task<IEnumerable<Account>> GetAccountsAsync(int page, int itemsPerPage)
         {
-            return await _accountRepository.GetByPage(page, itemsPerPage);
+            return await _accountRepository.GetByPageAsync(page, itemsPerPage);
         }
 
         public async Task SignUpAsync(Account account)
