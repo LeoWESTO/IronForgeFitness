@@ -1,14 +1,19 @@
 ﻿using IronForgeFitness.Domain.Abstractions;
 
-namespace IronForgeFitness.Domain.Entities
+namespace IronForgeFitness.Domain.Entities;
+
+/// <summary>
+/// Represents a training entity.
+/// </summary>
+public class Training : BaseEntity
 {
     /// <summary>
-    /// Represents an entity of training event in the calendar
+    /// The date and time of the training.
     /// </summary>
-    public class Training : BaseEntity
-    {
-        public DateTime DateTime { get; set; }
-        public List<Subscription> Subscriptions { get; set; } = new();
+    public DateTime DateTime { get; set; }
 
-    }
+    /// <summary>
+    /// The list of subscriptions associated with the training.
+    /// </summary>
+    public List<Subscription> Subscriptions { get; set; } = new();
 }

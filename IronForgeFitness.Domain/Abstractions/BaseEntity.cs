@@ -1,10 +1,12 @@
-﻿namespace IronForgeFitness.Domain.Abstractions
+﻿namespace IronForgeFitness.Domain.Abstractions;
+
+/// <summary>
+/// Base class for all entities.
+/// </summary>
+public abstract class BaseEntity
 {
     /// <summary>
-    /// Represents the entity that should be identified
+    /// The unique identifier of the entity.
     /// </summary>
-    public abstract class BaseEntity
-    {
-        public Guid Id { get; set; }
-    }
+    public Guid Id { get; set; }
 }

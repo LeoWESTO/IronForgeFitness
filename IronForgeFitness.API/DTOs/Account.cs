@@ -8,9 +8,10 @@ public record AccountsList(
     uint TotalItems,
     List<AccountResponse> Accounts);
 public record AccountResponse(
+    Guid Id,
     string Email,
-    Role Role);
+    string Role);
 public record AccountRequest(
     string Email,
     string Password,
-    Role Role);
+    string Role);

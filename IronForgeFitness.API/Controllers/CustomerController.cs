@@ -2,10 +2,12 @@
 using IronForgeFitness.API.DTOs;
 using IronForgeFitness.Application.Services.Interfaces;
 using IronForgeFitness.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IronForgeFitness.API.Controllers;
 
+[Authorize(Roles = "Admin")]
 [Route("api/customers")]
 [ApiController]
 public class CustomerController : ControllerBase
@@ -101,20 +103,6 @@ public class CustomerController : ControllerBase
         catch (Exception ex)
         {
             return BadRequest(ex.Message);
-        }
-    }
-
-    // GET api/customers/{customerId}/subscriptions
-    [HttpGet("{customerId}/subscriptions")]
-    public async Task<ActionResult<SubscriptionResponse>> GetCustomerSubscriptions(Guid customerId)
-    {
-        try
-        {
-            return Ok();
-        }
-        catch (Exception ex)
-        {
-            return NotFound();
         }
     }
 }

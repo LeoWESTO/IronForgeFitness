@@ -2,7 +2,7 @@
 using IronForgeFitness.Application.Services.Interfaces;
 using IronForgeFitness.Domain.Entities;
 
-namespace IronForgeFitness.Application.Services
+namespace IronForgeFitness.Application.Services.Implementation
 {
     public class GymService : IGymService
     {
@@ -30,7 +30,7 @@ namespace IronForgeFitness.Application.Services
 
         public async Task<IEnumerable<Gym>> GetGymsAsync()
         {
-            return await _gymRepository.GetAll();
+            return await _gymRepository.GetAllAsync();
         }
 
         public async Task OpenGymAsync(Gym gym)

@@ -2,7 +2,7 @@
 using IronForgeFitness.Application.Services.Interfaces;
 using IronForgeFitness.Domain.Entities;
 
-namespace IronForgeFitness.Application.Services
+namespace IronForgeFitness.Application.Services.Implementation
 {
     public class AccountService : IAccountService
     {
@@ -26,6 +26,11 @@ namespace IronForgeFitness.Application.Services
         public async Task<IEnumerable<Account>> GetAccountsAsync(int page, int itemsPerPage)
         {
             return await _accountRepository.GetByPageAsync(page, itemsPerPage);
+        }
+
+        public async Task<Account> GetByEmail(string email)
+        {
+            return (await _accountRepository.GetAllAsync()).FirstOrDefault(a => a.Email == email);
         }
 
         public async Task SignUpAsync(Account account)

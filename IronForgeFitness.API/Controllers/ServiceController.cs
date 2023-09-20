@@ -3,10 +3,12 @@ using IronForgeFitness.API.DTOs;
 using IronForgeFitness.Application.Services;
 using IronForgeFitness.Application.Services.Interfaces;
 using IronForgeFitness.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IronForgeFitness.API.Controllers;
 
+[Authorize(Roles = "Admin")]
 [Route("api/services")]
 [ApiController]
 public class ServiceController : ControllerBase

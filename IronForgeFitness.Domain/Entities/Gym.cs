@@ -1,9 +1,14 @@
 ﻿using IronForgeFitness.Domain.Abstractions;
 
-namespace IronForgeFitness.Domain.Entities
+namespace IronForgeFitness.Domain.Entities;
+
+/// <summary>
+/// Represents a Gym entity with its address.
+/// </summary>
+public class Gym : BaseEntity
 {
-    public class Gym : BaseEntity
-    {
-        public string Address { get; set; } = string.Empty;
-    }
+    /// <summary>
+    /// The address of the gym.
+    /// </summary>
+    public string Address { get; set; } = string.Empty;
 }

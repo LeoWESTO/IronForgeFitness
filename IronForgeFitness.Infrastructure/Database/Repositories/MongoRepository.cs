@@ -54,7 +54,7 @@ namespace IronForgeFitness.Infrastructure.Database.Repositories
             return (int)await _collection.CountDocumentsAsync("{}");
         }
 
-        public async Task<IEnumerable<T>> GetAll()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             return (await _collection.FindAsync("{}")).ToList();
         }

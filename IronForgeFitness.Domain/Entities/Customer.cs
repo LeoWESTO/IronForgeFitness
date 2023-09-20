@@ -1,13 +1,19 @@
 ﻿using IronForgeFitness.Domain.Abstractions;
 
-namespace IronForgeFitness.Domain.Entities
+namespace IronForgeFitness.Domain.Entities;
+
+/// <summary>
+/// Represents a customer, inheriting from the Person class.
+/// </summary>
+public class Customer : Person
 {
     /// <summary>
-    /// Represents an entity of customer
+    /// The account associated with the customer.
     /// </summary>
-    public class Customer : Person
-    {
-        public Account? Account { get; set; }
-        public List<Subscription> Subscriptions { get; set; } = new();
-    }
+    public Account? Account { get; set; }
+
+    /// <summary>
+    /// A list of subscriptions for the customer.
+    /// </summary>
+    public List<Subscription> Subscriptions { get; set; } = new();
 }

@@ -2,7 +2,7 @@
 using IronForgeFitness.Application.Services.Interfaces;
 using IronForgeFitness.Domain.Entities;
 
-namespace IronForgeFitness.Application.Services
+namespace IronForgeFitness.Application.Services.Implementation
 {
     public class TrainingService : ITrainingService
     {

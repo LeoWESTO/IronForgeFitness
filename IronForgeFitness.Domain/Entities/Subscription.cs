@@ -1,14 +1,24 @@
 ﻿using IronForgeFitness.Domain.Abstractions;
 
-namespace IronForgeFitness.Domain.Entities
+namespace IronForgeFitness.Domain.Entities;
+
+/// <summary>
+/// Represents a subscription of the customer.
+/// </summary>
+public class Subscription : BaseEntity
 {
     /// <summary>
-    /// Represents an entity of customer's subscription 
+    /// The transaction associated with the subscription.
     /// </summary>
-    public class Subscription : BaseEntity
-    {
-        public Transaction? Transaction { get; set; }
-        public Service? Service { get; set; }
-        public DateOnly ExpirationDate { get; set; }
-    }
+    public Transaction? Transaction { get; set; }
+
+    /// <summary>
+    /// The service associated with the subscription.
+    /// </summary>
+    public Service? Service { get; set; }
+
+    /// <summary>
+    /// The expiration date of the subscription.
+    /// </summary>
+    public DateOnly ExpirationDate { get; set; }
 }

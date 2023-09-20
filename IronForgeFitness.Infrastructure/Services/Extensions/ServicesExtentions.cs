@@ -1,4 +1,4 @@
-﻿using IronForgeFitness.Application.Services;
+﻿using IronForgeFitness.Application.Services.Implementation;
 using IronForgeFitness.Application.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 

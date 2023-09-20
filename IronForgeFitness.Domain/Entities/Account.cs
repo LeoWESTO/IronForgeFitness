@@ -1,17 +1,24 @@
 ﻿using IronForgeFitness.Domain.Abstractions;
-using IronForgeFitness.Domain.Enums;
 
-namespace IronForgeFitness.Domain.Entities
+namespace IronForgeFitness.Domain.Entities;
+
+/// <summary>
+/// Represents an Account entity, derived from BaseEntity.
+/// </summary>
+public class Account : BaseEntity
 {
     /// <summary>
-    /// Represents the entity that identify the user
+    /// The email associated with the account.
     /// </summary>
-    public class Account : BaseEntity
-    {
-        public string Email { get; set; } = string.Empty;
-        public string PasswordHash { get; set; } = string.Empty;
-        public Role Role { get; set; } = Role.None;
-        public string AccessToken { get; set; } = string.Empty;
-        public string RefreshToken { get; set; } = string.Empty;
-    }
+    public string Email { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The hashed password associated with the account.
+    /// </summary>
+    public string PasswordHash { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The role of the account.
+    /// </summary>
+    public string Role { get; set; } = string.Empty;
 }

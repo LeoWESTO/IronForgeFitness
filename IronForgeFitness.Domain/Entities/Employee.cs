@@ -1,14 +1,24 @@
 ﻿using IronForgeFitness.Domain.Abstractions;
 
-namespace IronForgeFitness.Domain.Entities
+namespace IronForgeFitness.Domain.Entities;
+
+/// <summary>
+/// Represents an employee, inheriting from the Person class.
+/// </summary>
+public class Employee : Person
 {
     /// <summary>
-    /// Represents an entity of employee
+    /// The account information for the employee.
     /// </summary>
-    public class Employee : Person
-    {
-        public Account? Account { get; set; }
-        public decimal Salary { get; set; }
-        public DateOnly DateOfHire { get; set; }
-    }
+    public Account? Account { get; set; }
+
+    /// <summary>
+    /// The salary of the employee.
+    /// </summary>
+    public decimal Salary { get; set; }
+
+    /// <summary>
+    /// The date when the employee was hired.
+    /// </summary>
+    public DateOnly DateOfHire { get; set; }
 }

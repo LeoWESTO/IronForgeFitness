@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
 using IronForgeFitness.API.DTOs;
-using IronForgeFitness.Application.Services;
+using IronForgeFitness.API.Services;
 using IronForgeFitness.Application.Services.Interfaces;
 using IronForgeFitness.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IronForgeFitness.API.Controllers;
 
+[Authorize(Roles = "Admin")]
 [Route("api/accounts")]
 [ApiController]
 public class AccountController : ControllerBase
@@ -16,7 +18,8 @@ public class AccountController : ControllerBase
 
     public AccountController(
         IMapper mapper,
-        IAccountService accountService)
+        IAccountService accountService,
+        AuthService authService)
     {
         _mapper = mapper;
         _accountService = accountService;
@@ -63,6 +66,7 @@ public class AccountController : ControllerBase
         try
         {
             var account = _mapper.Map<Account>(accountDTO);
+            account.PasswordHash = AuthService.HashPassword(accountDTO.Password);
             await _accountService.SignUpAsync(account);
             return Ok();
         }
@@ -80,7 +84,7 @@ public class AccountController : ControllerBase
         {
             var account = _mapper.Map<Account>(accountDTO);
             account.Id = accountId;
-
+            account.PasswordHash = AuthService.HashPassword(accountDTO.Password);
             await _accountService.UpdateAccountAsync(account);
             return Ok();
         }

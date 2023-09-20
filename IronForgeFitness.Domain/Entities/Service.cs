@@ -1,14 +1,24 @@
 ﻿using IronForgeFitness.Domain.Abstractions;
 
-namespace IronForgeFitness.Domain.Entities
+namespace IronForgeFitness.Domain.Entities;
+
+/// <summary>
+/// Represents a service of the gym.
+/// </summary>
+public class Service : BaseEntity
 {
     /// <summary>
-    /// Represents an entity of gym service
+    /// The title of the service.
     /// </summary>
-    public class Service : BaseEntity
-    {
-        public string Title { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-        public decimal Price { get; set; } = decimal.Zero;
-    }
+    public string Title { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The description of the service.
+    /// </summary>
+    public string Description { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The price of the service.
+    /// </summary>
+    public decimal Price { get; set; } = decimal.Zero;
 }

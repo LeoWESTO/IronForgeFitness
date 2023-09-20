@@ -1,12 +1,37 @@
-﻿namespace IronForgeFitness.Domain.Enums
+﻿namespace IronForgeFitness.Domain.Enums;
+
+/// <summary>
+/// Enumeration for different transaction types.
+/// </summary>
+public enum TransactionType
 {
-    public enum TransactionType
-    {
-        None = 0,
-        Payment,
-        Rent,
-        Sale,
-        Purchase,
-        Salary,
-    }
+    /// <summary>
+    /// No transaction type specified.
+    /// </summary>
+    None = 0,
+
+    /// <summary>
+    /// Payment transaction type.
+    /// </summary>
+    Payment,
+
+    /// <summary>
+    /// Rent transaction type.
+    /// </summary>
+    Rent,
+
+    /// <summary>
+    /// Sale transaction type.
+    /// </summary>
+    Sale,
+
+    /// <summary>
+    /// Purchase transaction type.
+    /// </summary>
+    Purchase,
+
+    /// <summary>
+    /// Salary transaction type.
+    /// </summary>
+    Salary,
 }

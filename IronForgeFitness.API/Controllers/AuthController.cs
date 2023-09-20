@@ -1,38 +1,51 @@
-﻿using AutoMapper;
-using IronForgeFitness.API.DTOs;
+﻿using IronForgeFitness.API.DTOs;
+using IronForgeFitness.API.Services;
 using IronForgeFitness.Application.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace IronForgeFitness.API.Controllers;
 
+[AllowAnonymous]
 [Route("api/auth")]
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly IMapper _mapper;
     private readonly IAccountService _accountService;
+    private readonly AuthService _authService;
 
     public AuthController(
-        IMapper mapper,
-        IAccountService accountService)
+        IAccountService accountService,
+        AuthService authService)
     {
-        _mapper = mapper;
         _accountService = accountService;
+        _authService = authService;
     }
 
     [Route("login")]
     [HttpPost]
-    public IActionResult Login([FromBody] AuthCredentials credentials)
+    public async Task<IActionResult> Login([FromBody] AuthCredentials credentials)
     {
+        try
+        {
+            var account = await _accountService.GetByEmail(credentials.Email);
 
-        return Unauthorized();
-    }
+            if (account is null) return NotFound();
+            if (account.PasswordHash != AuthService.HashPassword(credentials.Password)) return BadRequest();
 
-    [Route("logout")]
-    [HttpPost]
-    public IActionResult Logout()
-    {
+            var claims = new List<Claim>
+            {
+            new Claim(ClaimTypes.Email, account.Email),
+            new Claim(ClaimTypes.Role, account.Role),
+            };
+            var token = _authService.GenerateToken(claims);
 
-        return Unauthorized();
+            return Ok(new AuthToken(token));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

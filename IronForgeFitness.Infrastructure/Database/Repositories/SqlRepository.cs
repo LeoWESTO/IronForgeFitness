@@ -56,7 +56,7 @@ namespace IronForgeFitness.Infrastructure.Database.Repositories
             return await _context.Set<T>().Skip((page - 1) * itemsPerPage).Take(itemsPerPage).ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAll()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
         }

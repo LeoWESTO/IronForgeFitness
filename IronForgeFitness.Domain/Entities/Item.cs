@@ -1,13 +1,19 @@
 ﻿using IronForgeFitness.Domain.Abstractions;
 
-namespace IronForgeFitness.Domain.Entities
+namespace IronForgeFitness.Domain.Entities;
+
+/// <summary>
+/// Represents an item in the stock.
+/// </summary>
+public class Item : BaseEntity
 {
     /// <summary>
-    /// Represents an entity of item in stock
+    /// The title of the item.
     /// </summary>
-    public class Item : BaseEntity
-    {
-        public string Title { get; set; } = string.Empty;
-        public decimal Price { get; set; } = decimal.Zero;
-    }
+    public string Title { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The price of the item.
+    /// </summary>
+    public decimal Price { get; set; } = decimal.Zero;
 }
