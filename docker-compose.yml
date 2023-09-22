@@ -1,0 +1,48 @@
+version: "3.9"
+networks:
+    iron-forge-fitness-net:
+        driver: bridge
+services:
+    app: 
+        container_name: iron-forge-fitness-api
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "80:80"
+        networks:
+            - iron-forge-fitness-net
+        depends_on:
+            - postgres_db
+            - mongo_db
+        environment:
+            ASPNETCORE_ENVIRONMENT: Development
+            ConnectionStrings__PostgresConnection: "Host=postgres;Port=5432;Database=iron-forge-fitness;Username=postgres;Password=root"
+            ConnectionStrings__MongoConnection: "mongodb://mongodb:27017/iron_forge_fitness"
+    postgres_db:
+        container_name: postgres
+        image: postgres:latest
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: root
+            POSTGRES_DB: iron-forge-fitness
+        ports:
+            - "5432:5432"
+        networks:
+            - iron-forge-fitness-net
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+    mongo_db:
+        container_name: mongo
+        image: mongo:latest
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: root
+        ports:
+            - "27017:27017"
+        volumes:
+            - mongodb_data:/data/db
+volumes:
+    postgres-data:
+    mongodb_data:
