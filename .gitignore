@@ -361,6 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/README.md
-/README.md
+
 /IronForgeFitness.API/appsettings.Development.json
