@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /README.md
 /README.md
+/IronForgeFitness.API/appsettings.Development.json
